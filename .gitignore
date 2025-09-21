@@ -5,6 +5,8 @@
 *.pdf
 *.json
 zombie
+ex02
+weapon
 
 # Prerequisites
 *.d
