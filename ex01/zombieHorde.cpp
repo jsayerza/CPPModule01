@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jsayerza <jsayerza@student.42barcelona.fr> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/14 11:15:00 by jsayerza          #+#    #+#             */
-/*   Updated: 2025/09/14 11:15:00 by jsayerza         ###   ########.fr       */
+/*   Created: 2025/09/21 13:00:00 by jsayerza          #+#    #+#             */
+/*   Updated: 2025/09/21 13:00:00 by jsayerza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Zombie.hpp"
 
-
-Zombie::Zombie( std::string name) : _name( name )
+Zombie*	zombieHorde( int N, std::string name )
 {
-	std::cout	<< "-- El zombie "
-				<< this->_name 
-				<< " existeix."
-				<< std::endl;
-}
-
-Zombie::~Zombie()
-{
-	std::cout	<< "-- El zombie "
-				<< this->_name 
-				<< " destruït."
-				<< std::endl;
-}
-
-void	Zombie::announce( void )
-{
-	std::cout	<< this->_name
-				<< ": BraiiiiiiinnnzzzZ..."
-				<< std::endl;
+	if (N <= 0)
+	{
+		std::cout << "El nombre de zombies a crear ha de ser > 0" << std::endl;
+		return (NULL);
+	}
+	Zombie* zombieArray = new Zombie[N];
+	for (int i = 0; i < N; i++)
+	{
+		std::stringstream strStream;
+		strStream << name << "_" << i + 1;
+		zombieArray[i].zombieNameSet(strStream.str());
+	}
+	return (zombieArray);
 }

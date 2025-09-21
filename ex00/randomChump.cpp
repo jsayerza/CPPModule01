@@ -1,37 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   randomChump.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jsayerza <jsayerza@student.42barcelona.fr> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/14 11:15:00 by jsayerza          #+#    #+#             */
-/*   Updated: 2025/09/14 11:15:00 by jsayerza         ###   ########.fr       */
+/*   Created: 2025/09/21 12:00:00 by jsayerza          #+#    #+#             */
+/*   Updated: 2025/09/21 12:00:00 by jsayerza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Zombie.hpp"
 
-
-Zombie::Zombie( std::string name) : _name( name )
+void	randomChump( std::string name )
 {
-	std::cout	<< "-- El zombie "
-				<< this->_name 
-				<< " existeix."
-				<< std::endl;
-}
-
-Zombie::~Zombie()
-{
-	std::cout	<< "-- El zombie "
-				<< this->_name 
-				<< " destruït."
-				<< std::endl;
-}
-
-void	Zombie::announce( void )
-{
-	std::cout	<< this->_name
-				<< ": BraiiiiiiinnnzzzZ..."
-				<< std::endl;
+	Zombie tmpZombie(name);
+	tmpZombie.announce();
 }

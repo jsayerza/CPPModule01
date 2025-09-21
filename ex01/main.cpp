@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jsayerza <jsayerza@student.42barcelona.fr> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/14 11:30:00 by jsayerza          #+#    #+#             */
-/*   Updated: 2025/09/14 11:30:00 by jsayerza         ###   ########.fr       */
+/*   Created: 2025/09/21 13:00:00 by jsayerza          #+#    #+#             */
+/*   Updated: 2025/09/21 13:00:00 by jsayerza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,25 @@
 
 int	main( void )
 {
-	std::cout	<< "\n=== Crear un zombie a HEAP (crear i destruir manualment) ==="
-				<< std::endl;
-	Zombie*	newHeapZombie = newZombie("iordee");
-	newHeapZombie->announce();
+	int			N = 3;
+	std::string	zombieNameBase = "iordee";
 
-	std::cout	<< "\n=== Crear un zombie temporal a STACK (es crea i destrueix autom./) ==="
+	std::cout	<< "\n=== Crear una horda de "
+				<< N
+				<< " zombies a HEAP (crear i destruir manualment) ==="
 				<< std::endl;
-	randomChump("Zombie_temporal_en_stack");
+	Zombie*	zombieArray = zombieHorde(N, zombieNameBase);
 
-	std::cout	<< "\n=== El zombie temporal ja s'ha destruït però el de HEAP segueix existint ==="
+	std::cout	<< "\n=== Els zombies de la horda s'anuncien ==="
 				<< std::endl;
-	newHeapZombie->announce();
-
-	std::cout	<< "\n=== Destruïr manualment el zombie de HEAP ==="
+	for (int i = 0; i < N; i++)
+	{
+		zombieArray[i].announce();
+	}
+	
+	std::cout	<< "\n=== Destruïr manualment la horda de zombies de HEAP ==="
 				<< std::endl;
-	delete newHeapZombie;
+	delete[] zombieArray;
 
 	return (0);
 }
