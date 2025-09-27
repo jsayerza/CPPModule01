@@ -5,8 +5,11 @@
 *.pdf
 *.json
 zombie
+zombieHorde
 brain
 weapon
+sed
+*_replaced
 
 # Prerequisites
 *.d
