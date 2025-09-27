@@ -11,6 +11,7 @@ weapon
 sed
 *_replaced
 harl
+harlFilter
 
 # Prerequisites
 *.d

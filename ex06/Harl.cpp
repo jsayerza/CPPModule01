@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jsayerza <jsayerza@student.42barcelona.fr> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/27 12:00:00 by jsayerza          #+#    #+#             */
-/*   Updated: 2025/09/27 12:00:00 by jsayerza         ###   ########.fr       */
+/*   Created: 2025/09/27 21:00:00 by jsayerza          #+#    #+#             */
+/*   Updated: 2025/09/27 21:00:00 by jsayerza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,17 +47,26 @@ void Harl::complain( std::string level )
 		"WARNING",
 		"ERROR"		
 	};
-	void (Harl::*complainFuncs[4])( void ) = {
-		&Harl::debug,
-		&Harl::info,
-		&Harl::warning,
-		&Harl::error
-	};
+
 	for (int i = 0; i < 4; i++)
 	{
 		if (levels[i] == level)
 		{
-			(this->*complainFuncs[i])();
+			switch (i)
+			{
+			case 0:
+				debug();
+				// fallthrough
+			case 1:
+				info();
+				// fallthrough
+			case 2:
+				warning();
+				// fallthrough
+			case 3:
+				error();
+				break;
+			}
 			return ;
 		}
 	}

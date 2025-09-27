@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jsayerza <jsayerza@student.42barcelona.fr> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/27 12:00:00 by jsayerza          #+#    #+#             */
-/*   Updated: 2025/09/27 12:00:00 by jsayerza         ###   ########.fr       */
+/*   Created: 2025/09/27 21:00:00 by jsayerza          #+#    #+#             */
+/*   Updated: 2025/09/27 21:00:00 by jsayerza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
+#ifndef HARL_HPP
+# define HARL_HPP
 
-int main( void )
+# include <string>
+# include <iostream>
+
+class Harl
 {
-	Harl		harl;
-	std::string	level;
+private:
+	void debug( void );
+	void info( void );
+	void warning( void );
+	void error( void );
 
-	level = "INFO";
-	harl.complain(level);
-	level = "DEBUG";
-	harl.complain(level);
-	level = "ERROR";
-	harl.complain(level);
-	level = "DEBUG";
-	harl.complain(level);
-	level = "NOPE";
-	harl.complain(level);
-	level = "WARNING";
-	harl.complain(level);
+public:
+	Harl( void );
+	~Harl( void );
 
-    return (0);
-}
+	void complain( std::string level );
+};
+
+#endif
