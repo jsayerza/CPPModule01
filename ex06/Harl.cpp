@@ -39,7 +39,7 @@ void Harl::error( void )
 	std::cout << "This is unacceptable! I want to speak to the manager now." << std::endl;
 }
 
-void Harl::complain( std::string level )
+int	Harl::levelIndexGet( const std::string& level )
 {
 	std::string levels[4] = {
 		"DEBUG",
@@ -48,27 +48,35 @@ void Harl::complain( std::string level )
 		"ERROR"		
 	};
 
-	for (int i = 0; i < 4; i++)
+	for (int i=0; i < 4; i++)
 	{
 		if (levels[i] == level)
 		{
-			switch (i)
-			{
-			case 0:
-				debug();
-				// fallthrough
-			case 1:
-				info();
-				// fallthrough
-			case 2:
-				warning();
-				// fallthrough
-			case 3:
-				error();
-				break;
-			}
-			return ;
+			return (i);
 		}
 	}
-	std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+	return (-1);
+}
+
+void Harl::complain( const std::string& level )
+{
+	int i = levelIndexGet(level);
+	switch (i)
+	{
+	case 0:
+		debug();
+		// fallthrough
+	case 1:
+		info();
+		// fallthrough
+	case 2:
+		warning();
+		// fallthrough
+	case 3:
+		error();
+		break;
+	default:
+		std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+	}
+	return ;
 }

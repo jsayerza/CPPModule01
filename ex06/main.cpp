@@ -18,7 +18,7 @@ int main( int argc, char **argv )
 
 	if ( argc != 2)
 	{
-		std::cerr << "Ús: ./harlFilter level" << std::endl;
+		std::cerr << "Ús: ./harlFilter level(DEBUG/INFO/WARNING/ERROR)" << std::endl;
 		return (1);
 	}
 	harl.complain(argv[1]);

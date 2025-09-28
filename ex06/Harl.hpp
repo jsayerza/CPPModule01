@@ -28,7 +28,8 @@ public:
 	Harl( void );
 	~Harl( void );
 
-	void complain( std::string level );
+	void complain( const std::string& level );
+	int	levelIndexGet( const std::string& level );
 };
 
 #endif
